@@ -28,6 +28,7 @@ interface iAuthor {
   avatar?: string;
   avatarID?: string;
   article?: {}[];
+  friends?: string[];
 }
 
 export interface iAuthorData extends iAuthor, mongoose.Document {}

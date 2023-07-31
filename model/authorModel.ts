@@ -28,6 +28,10 @@ const authorModel = new mongoose.Schema(
         ref: "articles",
       },
     ],
+
+    friends: {
+      type: Array<String>,
+    },
   },
   { timestamps: true },
 );

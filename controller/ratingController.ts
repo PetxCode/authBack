@@ -66,11 +66,11 @@ export const rateArticle = async (req: Request, res: Response) => {
 
     let totalRate = article.ratings.length;
     let totalScore = article.ratings
-      .map((el) => {
+      .map((el: any) => {
         return el.rate;
       })
 
-      .reduce((a, b) => {
+      .reduce((a: number, b: number) => {
         return a + b;
       });
 
