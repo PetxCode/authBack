@@ -2,6 +2,7 @@ import { Request, Response } from "express";
 import bcrypt from "bcrypt";
 import cloudinary from "../config/cloudinary";
 import authorModel from "../model/authorModel";
+import mongoose from "mongoose";
 
 export const createAuthor = async (req: any, res: Response) => {
   try {
@@ -13,13 +14,16 @@ export const createAuthor = async (req: any, res: Response) => {
       req.file?.path,
     );
 
-    const user = await authorModel.create({
+    const user: any = await authorModel.create({
       name,
       email,
       password: hashed,
       avatar: secure_url,
       avatarID: public_id,
     });
+
+    user.friends?.push(new mongoose.Types.ObjectId(user!._id));
+    user.save();
 
     res.status(201).json({
       message: "creating author",
