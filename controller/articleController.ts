@@ -90,15 +90,6 @@ export const getFriendArticles = async (req: any, res: Response) => {
     const authors = await authorModel.findById(authorID);
     const article = await articleModel.find();
 
-    const author: any = await authorModel.findById(authorID).populate({
-      path: "articles",
-      options: {
-        sort: {
-          createdAt: -1,
-        },
-      },
-    });
-
     let data = article?.filter((el: any) =>
       authors?.friends!.includes(el.authorID),
     );

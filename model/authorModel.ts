@@ -6,18 +6,22 @@ const authorModel = new mongoose.Schema(
     name: {
       type: String,
     },
+
     email: {
       type: String,
       unique: true,
       trim: true,
       toLowercase: true,
     },
+
     password: {
       type: String,
     },
+
     avatar: {
       type: String,
     },
+
     avatarID: {
       type: String,
     },
@@ -30,6 +34,10 @@ const authorModel = new mongoose.Schema(
     ],
 
     friends: {
+      type: Array<String>,
+    },
+
+    request: {
       type: Array<String>,
     },
   },

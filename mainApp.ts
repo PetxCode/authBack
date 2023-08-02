@@ -4,6 +4,7 @@ import author from "./router/authorRouter";
 import article from "./router/articleRoute";
 import rating from "./router/ratingRoute";
 import friend from "./router/friendRoute";
+import request from "./router/requestRoute";
 
 export const mainApp = (app: Application) => {
   app.use(cors());
@@ -25,4 +26,5 @@ export const mainApp = (app: Application) => {
   app.use("/api/v1", article);
   app.use("/api/v1", rating);
   app.use("/api/v1", friend);
+  app.use("/api/v1", request);
 };
